@@ -9,9 +9,9 @@ Administrators have the ability to manage products and orders to meet customers 
 
 - [Prerequisites](#Prerequisites)
 - [Setup](#Setup)
-- [Running the Application](#Running the Application)
-- [API Endpoints](#API Endpoints)
-- [Technologies Used](#Technologies Used)
+- [Running the Application](#Running-the-Application)
+- [API Endpoints](#API-Endpoints)
+- [Technologies Used](#Technologies-Used)
 
 
 ## Prerequisites
@@ -52,3 +52,65 @@ spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
 4. install dependencies and build the project:
 
 ```mvn clean install```
+
+## Running the Application
+
+1. Run the String boot application
+
+```mvn spring-boot:run```
+2. The application will start and run on `http://localhost:9000`
+
+## API Endpoints
+
+1. Endpoint : Inscription
+
+- URL : `/ecommerce/inscription`
+- Methode HTTP : `POST`
+- Description : allows a user to register with their name, first name, email, phone number and password
+
+Example request boby : 
+
+```
+POST /ecommerce/inscription
+Content-Type: application/json
+{
+    "nom":"john",
+    "prenom":"Doe",
+    "email":"j.doe@gmail.com",
+    "tel":"51251556156",
+    "password":"password12"
+}
+```
+
+- Success (HTTP code `201 Created`)
+- Failure : (HTTP code `400 Bad Request`)
+```email deja existant```
+
+2. Endpoint : Connexion
+
+- URL : `/ecommerce/connexion`
+- Methode HTTP : `POST`
+- Description : allows a user to log in with their email and password
+
+Example request boby :
+
+```
+POST /ecommerce/connexion
+Content-Type: application/json
+{
+    "email":"j.doe@gmail.com",
+    "password":"password12"
+}
+```
+
+- Success (HTTP code `200 Ok`) `connexion reussie `
+- Failure : (HTTP code ` 401 Unauthorized`) `Email ou mot de passe incorrect `
+
+3. Endpoint : Deconnexion
+
+`....`
+
+## Technologies Used
+
+`....`
+  
